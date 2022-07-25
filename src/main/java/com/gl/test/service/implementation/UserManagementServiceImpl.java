@@ -4,8 +4,8 @@ import com.gl.test.dao.entity.AccountEntity;
 import com.gl.test.dao.entity.PhoneEntity;
 import com.gl.test.dao.repository.AccountRepository;
 import com.gl.test.dao.repository.PhoneRepository;
-import com.gl.test.dto.request.AccountRequestDTO;
 import com.gl.test.dto.generic.PhoneDTO;
+import com.gl.test.dto.request.AccountRequestDTO;
 import com.gl.test.dto.response.AccountInfoResponseDTO;
 import com.gl.test.dto.response.AccountResponseDTO;
 import com.gl.test.exception.UserManagementException;
@@ -14,20 +14,15 @@ import com.gl.test.mapper.PhoneMapper;
 import com.gl.test.service.UserManagementService;
 import com.gl.test.service.ValidatorService;
 import com.gl.test.utils.DatetimeUtil;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 import static com.gl.test.utils.ErrorMessageUtil.EMAIL_EXISTS_ERR_DESC;
 

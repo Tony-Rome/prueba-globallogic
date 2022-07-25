@@ -3,18 +3,17 @@ package com.gl.test.service.implementation;
 import com.gl.test.exception.UserManagementException;
 import com.gl.test.service.JwtService;
 import com.gl.test.utils.DatetimeUtil;
-import io.jsonwebtoken.*;
-import org.springframework.beans.factory.annotation.Value;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
-import static com.gl.test.utils.ErrorMessageUtil.*;
+import static com.gl.test.utils.ErrorMessageUtil.JWT_ERR_DESC;
 
 @Service
 public class JwtServiceImpl implements JwtService {

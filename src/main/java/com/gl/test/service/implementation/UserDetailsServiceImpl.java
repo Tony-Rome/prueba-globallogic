@@ -1,18 +1,14 @@
 package com.gl.test.service.implementation;
 
-import com.gl.test.dao.entity.AccountEntity;
 import com.gl.test.dao.repository.AccountRepository;
 import com.gl.test.exception.UserManagementException;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Optional;
 
 import static com.gl.test.utils.ErrorMessageUtil.USER_NOT_FOUND;

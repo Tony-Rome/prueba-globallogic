@@ -1,7 +1,7 @@
 package com.gl.test.service.implementation;
 
-import com.gl.test.dto.request.AccountRequestDTO;
 import com.gl.test.dto.generic.PhoneDTO;
+import com.gl.test.dto.request.AccountRequestDTO;
 import com.gl.test.exception.UserManagementException;
 import com.gl.test.service.ValidatorService;
 import lombok.extern.slf4j.Slf4j;

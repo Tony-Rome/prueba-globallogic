@@ -1,17 +1,11 @@
 package com.gl.test.service.implementation;
 
-import com.gl.test.dao.entity.PhoneEntity;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.List;
 
 @Data
 @Builder
