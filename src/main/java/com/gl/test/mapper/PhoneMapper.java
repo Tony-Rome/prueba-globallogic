@@ -15,8 +15,8 @@ public class PhoneMapper {
                 .stream()
                 .map(phone -> PhoneDTO.builder()
                         .number(phone.getNumber())
-                        .cityCode(phone.getCityCode())
-                        .countryCode(phone.getCountryCode())
+                        .citycode(phone.getCityCode())
+                        .countrycode(phone.getCountryCode())
                         .build()).collect(Collectors.toList());
     }
 
@@ -25,8 +25,8 @@ public class PhoneMapper {
                 .stream()
                 .map(phone -> PhoneEntity.builder()
                         .number(phone.getNumber())
-                        .cityCode(phone.getCityCode())
-                        .countryCode(phone.getCountryCode().toUpperCase())
+                        .cityCode(phone.getCitycode())
+                        .countryCode(phone.getCountrycode().toUpperCase())
                         .account(account)
                         .build())
                 .collect(Collectors.toList());

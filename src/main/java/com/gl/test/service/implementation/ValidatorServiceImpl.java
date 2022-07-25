@@ -44,8 +44,8 @@ public class ValidatorServiceImpl implements ValidatorService {
         phonesDTO
                 .forEach(phone -> {
                     validatePhoneNumber(phone.getNumber());
-                    validateCityCode(phone.getCityCode());
-                    validateCountryCode(phone.getCountryCode());
+                    validateCityCode(phone.getCitycode());
+                    validateCountryCode(phone.getCountrycode());
         });
     }
 

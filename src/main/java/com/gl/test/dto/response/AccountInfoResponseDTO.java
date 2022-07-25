@@ -16,7 +16,6 @@ public class AccountInfoResponseDTO {
     private LocalDateTime created;
     private LocalDateTime lastLogin;
     private String token;
-    @JsonProperty(namespace = "isActive")
     private boolean isActive;
     private String name;
     private String email;
