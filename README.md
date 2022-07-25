@@ -61,7 +61,7 @@ Las rutas contenidas en la aplicación son las siguientes:
 
 ---
 
-###Extra
+### Extra
 Está disponible la consola de la base de datos H2 en la siguiente ruta:
 
 
