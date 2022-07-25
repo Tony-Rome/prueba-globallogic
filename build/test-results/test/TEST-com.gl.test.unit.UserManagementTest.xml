@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gl.test.unit.UserManagementTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-07-25T01:29:27" hostname="DESKTOP-19G9KKD" time="0.619">
+  <properties/>
+  <testcase name="Verify JWT creation" classname="com.gl.test.unit.UserManagementTest" time="0.523"/>
+  <testcase name="Verify good emails [email: emailTest@test.com, expectedException: void, #0]" classname="com.gl.test.unit.UserManagementTest" time="0.024"/>
+  <testcase name="Verify good emails [email: mail@mail.com, expectedException: void, #1]" classname="com.gl.test.unit.UserManagementTest" time="0.001"/>
+  <testcase name="Verify good emails [email: glt@test.io, expectedException: void, #2]" classname="com.gl.test.unit.UserManagementTest" time="0.0"/>
+  <testcase name="Verify bad emails [email: email123@test.com, expectedException: class com.gl.test.exception.UserManagementException, #0]" classname="com.gl.test.unit.UserManagementTest" time="0.007"/>
+  <testcase name="Verify bad emails [email: mail.com, expectedException: class com.gl.test.exception.UserManagementException, #1]" classname="com.gl.test.unit.UserManagementTest" time="0.001"/>
+  <testcase name="Verify bad emails [email: email.test.cl, expectedException: class com.gl.test.exception.UserManagementException, #2]" classname="com.gl.test.unit.UserManagementTest" time="0.001"/>
+  <testcase name="Verify strong password [password: 1ksj8dsalkoK, expected: void, #0]" classname="com.gl.test.unit.UserManagementTest" time="0.002"/>
+  <testcase name="Verify strong password [password: kjsKkah2nrw2, expected: void, #1]" classname="com.gl.test.unit.UserManagementTest" time="0.001"/>
+  <testcase name="Verify strong password [password: 11ksjdsalkA, expected: void, #2]" classname="com.gl.test.unit.UserManagementTest" time="0.0"/>
+  <testcase name="Verify weak password [password: 1ksj8dsalko, expectedException: class com.gl.test.exception.UserManagementException, #0]" classname="com.gl.test.unit.UserManagementTest" time="0.001"/>
+  <testcase name="Verify weak password [password: @213kjsKk, expectedException: class com.gl.test.exception.UserManagementException, #1]" classname="com.gl.test.unit.UserManagementTest" time="0.001"/>
+  <testcase name="Verify weak password [password: 11ksj8dsalko, expectedException: class com.gl.test.exception.UserManagementException, #2]" classname="com.gl.test.unit.UserManagementTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
