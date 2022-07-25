@@ -1,5 +1,6 @@
 package com.gl.test.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gl.test.dto.generic.PhoneDTO;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,7 @@ public class AccountInfoResponseDTO {
     private LocalDateTime created;
     private LocalDateTime lastLogin;
     private String token;
+    @JsonProperty(namespace = "isActive")
     private boolean isActive;
     private String name;
     private String email;
