@@ -60,7 +60,7 @@ public class ValidatorServiceImpl implements ValidatorService {
     }
 
     private void validateCountryCode(String countryCode){
-        if(!countryCode.matches("[a-zA-Z]]{2,3}"))
+        if(!countryCode.matches("[a-zA-Z]{2,3}"))
             throw new UserManagementException(HttpStatus.BAD_REQUEST, COUNTRY_CODE_ERR_DESC);
     }
 }
