@@ -14,7 +14,9 @@ import javax.persistence.*;
 public class PhoneEntity {
 
     @Id
-    private int number;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private long number;
     private int cityCode;
     private String countryCode;
 

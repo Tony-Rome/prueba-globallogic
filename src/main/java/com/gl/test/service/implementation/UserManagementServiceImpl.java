@@ -5,6 +5,7 @@ import com.gl.test.dao.entity.PhoneEntity;
 import com.gl.test.dao.repository.AccountRepository;
 import com.gl.test.dao.repository.PhoneRepository;
 import com.gl.test.dto.generic.PhoneDTO;
+import com.gl.test.dto.request.AccountLoginRequestDTO;
 import com.gl.test.dto.request.AccountRequestDTO;
 import com.gl.test.dto.response.AccountInfoResponseDTO;
 import com.gl.test.dto.response.AccountResponseDTO;
@@ -24,6 +25,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
+import static com.gl.test.utils.ErrorMessageUtil.BAD_CREDENTIALS_ERR_DESC;
 import static com.gl.test.utils.ErrorMessageUtil.EMAIL_EXISTS_ERR_DESC;
 
 @Slf4j
@@ -52,7 +54,7 @@ public class UserManagementServiceImpl implements UserManagementService {
         accountRepository.save(accountEntity);
 
         List<PhoneDTO> phonesRequest = accountRequestDTO.getPhones();
-        if(phonesRequest != null){
+        if(phonesRequest != null && !phonesRequest.isEmpty()){
             List<PhoneEntity> phones = PhoneMapper.toPhoneEntity(phonesRequest, accountEntity);
             phoneRepository.saveAll(phones);
         }
@@ -61,17 +63,23 @@ public class UserManagementServiceImpl implements UserManagementService {
     }
 
     @Override
-    public AccountInfoResponseDTO login() {
+    public AccountInfoResponseDTO login(AccountLoginRequestDTO accountLoginRequestDTO) {
         log.info("login");
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(principal);
         String email = ((UserDetailsImpl) principal).getUsername();
         AccountEntity account = accountRepository.findByEmail(email);
+        isCredentialsValid(accountLoginRequestDTO, account.getEmail(), account.getPassword());
         AccountInfoResponseDTO accountInfoResponseDTO = getAccountInfoResponse(account);
         account.setLastLogin(DatetimeUtil.getCurrentDateTime());
         accountRepository.save(account);
         return accountInfoResponseDTO;
 
+    }
+
+    private void isCredentialsValid(AccountLoginRequestDTO accountLoginRequestDTO, String email, String passpord){
+        if(!accountLoginRequestDTO.getEmail().equals(email) ||
+                !passwordEncoder.matches(accountLoginRequestDTO.getPassword(), passpord))
+            throw new UserManagementException(HttpStatus.BAD_REQUEST, BAD_CREDENTIALS_ERR_DESC);
     }
 
     private AccountResponseDTO getAccountResponse(AccountEntity accountEntity){

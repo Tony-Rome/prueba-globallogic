@@ -1,6 +1,7 @@
 package com.gl.test.controller;
 
 import com.gl.test.dto.request.AccountRequestDTO;
+import com.gl.test.dto.request.AccountLoginRequestDTO;
 import com.gl.test.dto.response.AccountInfoResponseDTO;
 import com.gl.test.dto.response.AccountResponseDTO;
 import com.gl.test.service.UserManagementService;
@@ -24,7 +25,7 @@ public class UserManagementControllerImpl implements UserManagementController{
 
     @Override
     @GetMapping(value = "/login")
-    public ResponseEntity<AccountInfoResponseDTO> login(){
-        return new ResponseEntity<>(userManagementService.login(), HttpStatus.OK);
+    public ResponseEntity<AccountInfoResponseDTO> login(@RequestBody AccountLoginRequestDTO accountLoginRequestDTO){
+        return new ResponseEntity<>(userManagementService.login(accountLoginRequestDTO), HttpStatus.OK);
     }
 }

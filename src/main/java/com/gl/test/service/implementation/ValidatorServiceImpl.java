@@ -24,20 +24,28 @@ public class ValidatorServiceImpl implements ValidatorService {
         log.info("Data validation");
         validateEmail(createAccountDTO.getEmail());
         validatePassword(createAccountDTO.getPassword());
+        validateName(createAccountDTO.getName());
         List<PhoneDTO> phones = createAccountDTO.getPhones();
-        if(phones != null) validatePhones(phones);
+        if(phones != null && !phones.isEmpty()) validatePhones(phones);
     }
 
     @Override
     public void validateEmail(String email){
-        boolean isValid = email.matches(EMAIL_REGEX);
-        if(!isValid) throw new UserManagementException(HttpStatus.BAD_REQUEST, EMAIL_ERR_DESC);
+        if(email == null || !email.matches(EMAIL_REGEX))
+            throw new UserManagementException(HttpStatus.BAD_REQUEST, EMAIL_ERR_DESC);
     }
 
     @Override
     public void validatePassword(String password){
-        boolean isValid = password.matches(PASSWORD_REGEX);
-        if(!isValid) throw new UserManagementException(HttpStatus.BAD_REQUEST, PASSWORD_ERR_DESC);
+        if(password == null || !password.matches(PASSWORD_REGEX))
+            throw new UserManagementException(HttpStatus.BAD_REQUEST, PASSWORD_ERR_DESC);
+    }
+
+    private void validateName(String name){
+        if(name == null ) return;
+        if(!name.matches("[a-zA-Z\\s]+"))
+            throw new UserManagementException(HttpStatus.BAD_REQUEST, NAME_ERR_DESC);
+
     }
 
     private void validatePhones(List<PhoneDTO> phonesDTO){
@@ -49,18 +57,18 @@ public class ValidatorServiceImpl implements ValidatorService {
         });
     }
 
-    private void validatePhoneNumber(Integer phoneNumber){
-        if(!phoneNumber.toString().matches("\\d{8}"))
+    private void validatePhoneNumber(Long phoneNumber){
+        if(phoneNumber == null || !phoneNumber.toString().matches("\\d{8}"))
             throw new UserManagementException(HttpStatus.BAD_REQUEST, PHONE_ERR_DESC);
     }
 
     private void validateCityCode(Integer cityCode){
-        if(!cityCode.toString().matches("\\d{2}"))
+        if(cityCode == null || !cityCode.toString().matches("\\d{2}"))
             throw new UserManagementException(HttpStatus.BAD_REQUEST, CITY_CODE_ERR_DESC);
     }
 
     private void validateCountryCode(String countryCode){
-        if(!countryCode.matches("[a-zA-Z]{2,3}"))
+        if(countryCode == null || !countryCode.matches("[a-zA-Z]{2,3}"))
             throw new UserManagementException(HttpStatus.BAD_REQUEST, COUNTRY_CODE_ERR_DESC);
     }
 }

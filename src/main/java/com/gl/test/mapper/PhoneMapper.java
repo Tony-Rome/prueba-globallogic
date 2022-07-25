@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class PhoneMapper {
 
     public static List<PhoneDTO> toPhoneDTO(List<PhoneEntity> phoneEntities){
-        if(phoneEntities.isEmpty()) return null;
+        if(phoneEntities == null || phoneEntities.isEmpty()) return null;
         return phoneEntities
                 .stream()
                 .map(phone -> PhoneDTO.builder()

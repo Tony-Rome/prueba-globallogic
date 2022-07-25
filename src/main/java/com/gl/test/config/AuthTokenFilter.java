@@ -61,7 +61,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         return !request.getRequestURI().matches(AUTHENTICATED_PATH);
     }
 
-    private String extractJwt(HttpServletRequest request){
+    private String extractJwt(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(AUTHORIZATION_HEADER);
         if(!authorizationHeader.startsWith(BEARER))
             throw new UserManagementException(HttpStatus.BAD_REQUEST, EMPTY_JWT_ERR_DESC);
