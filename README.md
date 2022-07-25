@@ -24,6 +24,7 @@
     
       java -jar user-management-1.0-SNAPSHOT.JAR
 
+
 Se levantará la aplicación con la siguiente path:
 
 
