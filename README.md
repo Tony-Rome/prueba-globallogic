@@ -35,7 +35,7 @@
 Las rutas contenidas en la aplicación son las siguientes:
 1. <b> POST /v1/account/sign-up </b>
    
-   1. Se debe enviar JSON especificado en los requerimientos:
+   1. Se debe enviar JSON body especificado en los requerimientos:
 
 
          {
@@ -46,7 +46,7 @@ Las rutas contenidas en la aplicación son las siguientes:
                   {
                      "number": 92321982,
                      "citycode": 1,
-                     "contrycode": "CH"
+                     "countrycode": "CH"
                   }
                ]
             }
@@ -54,7 +54,7 @@ Las rutas contenidas en la aplicación son las siguientes:
 
 2. <b> POST /v1/account/login </b>
 
-   1. Se debe adjuntar Bearer token en cabecera authorization y JSON con credenciales:
+   1. Se debe adjuntar Bearer token en cabecera <i>Authorization</i> y JSON body con credenciales:
    
    
       { "email": "emasil@test.com", "password": "1kKaaal8" }

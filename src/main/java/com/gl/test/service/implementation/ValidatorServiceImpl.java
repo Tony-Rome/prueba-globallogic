@@ -63,7 +63,7 @@ public class ValidatorServiceImpl implements ValidatorService {
     }
 
     private void validateCityCode(Integer cityCode){
-        if(cityCode == null || !cityCode.toString().matches("\\d{2}"))
+        if(cityCode == null || !cityCode.toString().matches("\\d{1,}"))
             throw new UserManagementException(HttpStatus.BAD_REQUEST, CITY_CODE_ERR_DESC);
     }
 
