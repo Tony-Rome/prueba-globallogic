@@ -19,7 +19,7 @@ public class UserManagementControllerImpl implements UserManagementController{
     @Override
     @PostMapping(value = "/sign-up")
     public ResponseEntity<AccountResponseDTO> signup(@RequestBody AccountRequestDTO createAccountDTO) {
-        return new ResponseEntity<>(userManagementService.signup(createAccountDTO), HttpStatus.OK);
+        return new ResponseEntity<>(userManagementService.signup(createAccountDTO), HttpStatus.CREATED);
     }
 
     @Override
