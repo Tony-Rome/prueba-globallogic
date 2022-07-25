@@ -22,13 +22,12 @@
 2. Una vez completado el paso anterior, ubicarse en carpeta \build\libs y ejecutar el siguiente comando:
 
     
-      java -jar user-management-1.0-SNAPSHOT.JAR
+       java -jar user-management-1.0-SNAPSHOT.JAR
+
+3. Se levantará la aplicación con la siguiente path:
 
 
-Se levantará la aplicación con la siguiente path:
-
-
-      http://localhost:8080
+       http://localhost:8080
 
 ---
 
