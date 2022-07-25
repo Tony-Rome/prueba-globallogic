@@ -69,6 +69,7 @@ Está disponible la consola de la base de datos H2 en la siguiente ruta:
 
 
 con las crendeciales:
-
+   
+    - database name: testdb
     - username: sa
     - password: <sin password>
