@@ -21,7 +21,7 @@ http:://localhost:8080
 
 ###Rutas
 Las rutas contenidas en la aplicación son las siguientes:
-1. POST /v1/account/signup
+1. POST /v1/account/sign-up
    1. Se debe enviar JSON especificado en los requerimientos
 2. GET /v1/account/login
    1. Se debe adjuntar Bearer token en cabecera authorization

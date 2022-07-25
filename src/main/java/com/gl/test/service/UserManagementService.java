@@ -6,6 +6,6 @@ import com.gl.test.dto.response.AccountResponseDTO;
 
 public interface UserManagementService {
 
-    AccountResponseDTO singup(AccountRequestDTO createAccountDTO);
+    AccountResponseDTO signup(AccountRequestDTO createAccountDTO);
     AccountInfoResponseDTO login();
 }

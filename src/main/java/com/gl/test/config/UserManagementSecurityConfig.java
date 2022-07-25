@@ -17,7 +17,7 @@ public class UserManagementSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/v1/account/singup").permitAll()
+                .antMatchers("/v1/account/signup").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/v1/account/login").authenticated()
                 .anyRequest().permitAll();

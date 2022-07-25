@@ -26,7 +26,7 @@ import java.util.List;
 
 import static com.gl.test.utils.ErrorMessageUtil.EMAIL_EXISTS_ERR_DESC;
 
-@Slf4j  // TODO: Revisar cual era la diferencia con ocupar log4j lib
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserManagementServiceImpl implements UserManagementService {
@@ -39,7 +39,7 @@ public class UserManagementServiceImpl implements UserManagementService {
 
     @Override
     @Transactional
-    public AccountResponseDTO singup(AccountRequestDTO accountRequestDTO) {
+    public AccountResponseDTO signup(AccountRequestDTO accountRequestDTO) {
         log.info("signup");
 
         validatorService.validateData(accountRequestDTO);
@@ -52,7 +52,7 @@ public class UserManagementServiceImpl implements UserManagementService {
         accountRepository.save(accountEntity);
 
         List<PhoneDTO> phonesRequest = accountRequestDTO.getPhones();
-        if(!phonesRequest.isEmpty()){
+        if(phonesRequest != null){
             List<PhoneEntity> phones = PhoneMapper.toPhoneEntity(phonesRequest, accountEntity);
             phoneRepository.saveAll(phones);
         }
@@ -64,6 +64,7 @@ public class UserManagementServiceImpl implements UserManagementService {
     public AccountInfoResponseDTO login() {
         log.info("login");
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(principal);
         String email = ((UserDetailsImpl) principal).getUsername();
         AccountEntity account = accountRepository.findByEmail(email);
         AccountInfoResponseDTO accountInfoResponseDTO = getAccountInfoResponse(account);

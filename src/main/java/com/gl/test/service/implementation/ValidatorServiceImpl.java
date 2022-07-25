@@ -25,7 +25,7 @@ public class ValidatorServiceImpl implements ValidatorService {
         validateEmail(createAccountDTO.getEmail());
         validatePassword(createAccountDTO.getPassword());
         List<PhoneDTO> phones = createAccountDTO.getPhones();
-        if(!phones.isEmpty()) validatePhones(phones);
+        if(phones != null) validatePhones(phones);
     }
 
     @Override

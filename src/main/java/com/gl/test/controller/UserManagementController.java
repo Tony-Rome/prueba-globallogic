@@ -7,6 +7,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface UserManagementController {
 
-    ResponseEntity<AccountResponseDTO> singup(AccountRequestDTO createAccountDTO);
+    ResponseEntity<AccountResponseDTO> signup(AccountRequestDTO createAccountDTO);
     ResponseEntity<AccountInfoResponseDTO> login();
 }
